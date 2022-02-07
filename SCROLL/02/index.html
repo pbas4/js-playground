@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="style.css" />
+		<title>Document</title>
+	</head>
+	<body>
+		<section class="section section-1">
+			<h2 class="h2pin">Section 1</h2>
+		</section>
+		<section class="section section-2">
+			<h2>Section 2</h2>
+		</section>
+		<section class="section section-3">
+			<h2>Section 3</h2>
+		</section>
+	</body>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.0/gsap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.0/ScrollTrigger.min.js"></script>
+
+	<script>
+		const tl = gsap.timeline();
+		// console.log('ScrollTrigger', ScrollTrigger);
+
+		gsap.from('.section-1', {
+			xPercent: -100,
+		});
+
+		gsap
+			.timeline({
+				scrollTrigger: {
+					trigger: '.section-2',
+					pin: '.h2pin',
+				},
+			})
+			// .from('.section-2', {
+			// 	xPercent: 100,
+			// })
+			.to('.h2pin', {
+				x: 300,
+			});
+
+		gsap.from('.section-3', {
+			scrollTrigger: {
+				trigger: '.section-3',
+			},
+			xPercent: -100,
+		});
+	</script>
+</html>

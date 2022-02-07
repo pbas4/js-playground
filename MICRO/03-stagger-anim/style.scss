@@ -1,0 +1,157 @@
+$asideWidth: '150px';
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	overflow-x: hidden;
+	font-family: 'Poppins', sans-serif;
+	background-color: #0c0c0c;
+	overflow-x: hidden;
+
+	// &::before {
+	// 	content: '';
+	// 	position: absolute;
+	// 	top: 0;
+	// 	left: 0;
+	// 	width: 100%;
+	// 	height: 100%;
+	// 	filter: grayscale(100%) blur(0px);
+	// 	background-image: url('../../images/longboard/long1.jpeg');
+	// 	background-position: center;
+	// 	background-size: cover;
+	// }
+}
+
+#initialVideo {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	overflow: hidden;
+
+	.fullscreen-bg__video {
+		object-fit: cover;
+		width: 100vw;
+		height: 100vh;
+		position: fixed;
+		top: 0;
+		left: 0;
+		filter: grayscale(100);
+	}
+}
+
+aside {
+	width: #{$asideWidth};
+	position: fixed;
+	left: 0;
+	height: 100vh;
+	border-right: 1.5px solid rgba(234, 233, 233, 0.6);
+	z-index: 10;
+
+	ul {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		justify-content: space-between;
+		align-items: center;
+		list-style: none;
+		overflow-x: hidden;
+
+		li {
+			color: rgba(234, 233, 233, 0.8);
+			height: 50%;
+			width: 100%;
+			text-align: center;
+			display: flex;
+			justify-content: center;
+			flex-direction: column;
+			cursor: pointer;
+			transition: all 0.2s;
+			position: relative;
+
+			span {
+				font-weight: 700;
+				letter-spacing: 0.1em;
+				transform: skewX(-20deg);
+			}
+
+			div {
+				position: absolute;
+				height: 100%;
+				width: 250%;
+				background-color: rgba(234, 233, 233, 0.1);
+				left: -300%;
+				transform: skewX(-10deg);
+			}
+		}
+	}
+}
+
+section {
+	position: relative;
+	width: 100%;
+	height: 100vh;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#initial-display {
+	position: fixed;
+	top: 0;
+	left: #{$asideWidth};
+	width: calc(100% - #{$asideWidth});
+	padding-left: 10%;
+	height: 100%;
+	flex-direction: column;
+	justify-content: center;
+	align-items: start;
+
+	h1 {
+		font-size: 13em;
+		font-weight: 700;
+		transform: skewX(-20deg);
+		color: rgba(234, 233, 233, 1);
+		padding-bottom: -2em;
+	}
+}
+
+#product-image {
+	position: absolute;
+	z-index: 5;
+	transform: translateY(-100%);
+	width: 100%;
+	height: 100%;
+
+	&::before {
+		content: '';
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		filter: grayscale(100%);
+		background-image: url('../../images/longboard/long3.jpeg');
+		background-position: center;
+		background-size: cover;
+	}
+}
+
+#stagger-container {
+	width: 100%;
+	height: 100%;
+	position: relative;
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	z-index: 8;
+
+	& > * {
+		background-color: rgba(234, 233, 233, 0.3);
+		transform-origin: left;
+	}
+}

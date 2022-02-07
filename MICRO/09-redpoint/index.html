@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="style.css" />
+		<title>Document</title>
+	</head>
+	<body>
+		<main>
+			<header>
+				<h1 class="title head">REDPOINT</h1>
+				<h1 class="title ing">I</h1>
+				<h1 class="title ing">N</h1>
+				<h1 class="title ing">G</h1>
+			</header>
+		</main>
+		<!-- <div class="loaderContainer">
+			<div class="redpoint">
+				<div class="dot"></div>
+				<span class="dotTitle">REDPOINTING...</span>
+			</div>
+		</div> -->
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.2/gsap.min.js"></script>
+		<script>
+			const redballLoader = document.querySelector('.dot');
+			const ing = document.getElementsByClassName('ing');
+			const head = document.getElementsByClassName('head');
+
+			console.log('ing', ing);
+
+			const tl = gsap.timeline();
+
+			tl.to(ing, {
+				delay: 0.3,
+				yPercent: 200,
+				opacity: 0,
+				duration: 0.8,
+				ease: 'back.in',
+				stagger: {
+					each: 0.6,
+					from: 'end',
+				},
+			})
+				.to(
+					head,
+					{
+						opacity: 0,
+						scale: 0,
+						duration: 0.6,
+						ease: 'easeInOut  ',
+					}
+					// '-=.01'
+				)
+				.to(ing, { display: 'none', duration: 0.1 })
+				.to(head, {
+					opacity: 1,
+					scale: 1,
+					fontSize: '14vw',
+					duration: 0.7,
+					ease: 'back.out(1)',
+					delay: 0.1,
+				});
+
+			// tl.from(redballLoader, {
+			// 	opacity: 0,
+			// 	yPercent: -800,
+			// 	duration: 1.5,
+			// 	ease: 'bounce.out',
+			// 	delay: 0.2,
+			// }).to(redballLoader, {
+			// 	delay: 2,
+			// 	transform: 'scale(0)',
+			// 	opacity: 0,
+			// });
+			// // {
+			// // 	delay: 3,
+			// // 	// transform: 'scale(0)',
+			// // 	// opacity: 0,
+			// // }
+		</script>
+	</body>
+</html>

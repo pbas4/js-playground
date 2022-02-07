@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Image Hover Effect</title>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<div class="image-container">
+			<img
+				src="../../images/longboard/long8.jpeg"
+				alt="longboard"
+				class="img-front"
+			/>
+		</div>
+
+		<div class="freedom">
+			<p>FREEDOM</p>
+		</div>
+
+		<div class="cursor"></div>
+
+		<script>
+			const cursor = document.querySelector('.cursor');
+			const image = document.querySelector('.image-container');
+			const freedom = document.querySelector('.freedom');
+
+			(function () {
+				window.addEventListener('mousemove', (event) => {
+					const { x: mouseX, y: mouseY } = event;
+
+					cursor.style.left = `${mouseX}px`;
+					cursor.style.top = `${mouseY}px`;
+				});
+
+				image.addEventListener('mouseover', () => {
+					cursor.classList.add('cursor-img-hover');
+					freedom.classList.add('freedom-visible');
+				});
+
+				image.addEventListener('mouseleave', () => {
+					cursor.classList.remove('cursor-img-hover');
+					freedom.classList.remove('freedom-visible');
+				});
+			})();
+		</script>
+	</body>
+</html>

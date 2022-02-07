@@ -1,0 +1,93 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+  font-family: 'Poppins', sans-serif;
+  padding: 50px;
+  background-color: #121213;
+}
+
+section {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#image-container {
+  width: 700px;
+  height: 400px;
+  position: relative;
+}
+
+#image-container:hover {
+  cursor: pointer;
+}
+
+#image-container .content {
+  width: 100%;
+  height: 100%;
+  background-image: url("../../images/tecno/3.jpeg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  z-index: 10;
+}
+
+#image-container .back-image,
+#image-container .back-image-2 {
+  width: 100%;
+  height: 100%;
+  background-color: #fef728;
+  position: absolute;
+  z-index: -1;
+}
+
+#image-container .back-image-2 {
+  background-color: #ff0000;
+  z-index: -2;
+}
+
+#image-container .title {
+  color: #1d1d1f;
+  font-weight: 700;
+  font-size: 4.5em;
+  position: absolute;
+  right: 20px;
+  top: 40px;
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+  -webkit-transform: skew(10deg, 2deg) scaleX(1.1);
+          transform: skew(10deg, 2deg) scaleX(1.1);
+  z-index: 9;
+  -webkit-text-fill-color: transparent;
+  /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: #121213;
+}
+
+#image-container .title-back {
+  height: 100%;
+  width: 110%;
+  background-color: #fef728;
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  -webkit-transform: rotateY(90deg);
+          transform: rotateY(90deg);
+}
+/*# sourceMappingURL=style.css.map */

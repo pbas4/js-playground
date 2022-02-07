@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="https://unpkg.com/kursor/dist/kursor.css" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="style.css" />
+		<title>Document</title>
+	</head>
+	<body>
+		<section>
+			<div id="image-container">
+				<div class="back-image"></div>
+				<div class="back-image-2"></div>
+				<div class="content">
+					<div class="title">
+						BUDS BUDS
+						<div class="title-back"></div>
+					</div>
+					<div class="price"></div>
+				</div>
+			</div>
+		</section>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.0/gsap.min.js"></script>
+		<script>
+			const imgContainer = document.getElementById('image-container');
+
+			imgContainer.addEventListener('mouseover', () => {
+				gsap
+					.timeline({ duration: 0.2 })
+					.to('.content', {
+						transform: 'scale(1.05)',
+						ease: 'back.out(3)',
+					})
+					.to(
+						'.back-image',
+						{
+							transform: 'skew(8deg, 8deg)',
+							ease: 'back.out(3)',
+						},
+						'-=.3'
+					)
+					.to(
+						'.back-image-2',
+						{
+							transform: 'skew(-10deg, 10deg)',
+							ease: 'back.out(3)',
+						},
+						'-=.6'
+					)
+					.to(
+						'.title',
+						{
+							transform: 'skew(0, 0) scaleX(1)',
+							ease: 'back.in(3)',
+							duration: 0.4,
+							ease: 'back.out(3)',
+						},
+						'-=.5'
+					)
+					.to('.title-back', {
+						transform: 'rotateY(0deg)',
+						ease: 'back.out(3)',
+						duration: 0.5,
+					});
+			});
+
+			imgContainer.addEventListener('mouseleave', () => {
+				gsap
+					.timeline({ duration: 0.2 })
+					.to('.content', {
+						transform: 'scale(1)',
+						ease: 'back.out(3)',
+						duration: 0.2,
+					})
+					.to('.back-image', {
+						transform: 'skew(0, 0)',
+						ease: 'back.out(3)',
+					})
+					.to(
+						'.back-image-2',
+						{
+							transform: 'skew(0, 0)',
+							ease: 'back.out(3)',
+						},
+						'-=.6'
+					)
+					.to(
+						'.title',
+						{
+							transform: 'skew(10deg, 2deg) scaleX(1)',
+							ease: 'back.in(3)',
+							duration: 0.3,
+						},
+						'-=.5'
+					)
+					.to('.title-back', {
+						transform: 'rotateY(90deg)',
+						duration: 0.2,
+					});
+			});
+		</script>
+	</body>
+</html>

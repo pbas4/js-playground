@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600;800;900&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="style.css" />
+		<title>Document</title>
+	</head>
+	<body>
+		<div class="main1">
+			<h4 class="h4111" style="color: rgb(36, 105, 209);">
+				Avocado for everyone!
+			</h4>
+			<h4 class="h411" style="color: beige;">Avocado for everyone!</h4>
+			<h4 class="h41">Avocado for everyone!</h4>
+			<div class="image1">
+				<img src="../../images/avocado.jpg" alt="avocado" />
+			</div>
+		</div>
+
+		<div id="main2">
+			<h4 class="h42" style="top: 20%;">Nyaaaaaaaaaaam!</h4>
+			<h4 class="h42" style="top: 40%; left: 50%;">Delicious!</h4>
+			<h4 class="h42" style="top: 60%; left: 30%;">Nyaaaaaaam!</h4>
+			<div class="image2">
+				<img src="../../images/avocado2.jpeg" alt="avocado" />
+			</div>
+			<div class="image3">
+				<img src="../../images/mango.jpg" alt="mango" />
+			</div>
+		</div>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.0/gsap.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.0/ScrollTrigger.min.js"></script>
+		<script>
+			gsap
+				.timeline()
+				.from('.image1', { opacity: 0, duration: 1 })
+				.fromTo('.h411', { opacity: 0 }, { opacity: 1 }, '-=0.5')
+				.fromTo('.h4111', { opacity: 0 }, { opacity: 1 }, '-=0.5')
+				.from('.h41', { top: -500, duration: 1, ease: 'bounce', duration: 0.6 })
+				.to('.h411', { x: 20, y: 20, duration: 0.6, ease: 'bounce' })
+				.to('.h4111', { x: 40, y: 40, duration: 0.6, ease: 'bounce' });
+
+			let tls = gsap.timeline({
+				scrollTrigger: {
+					trigger: '.main2',
+				},
+			});
+
+			tls.from('.h42', {
+				left: 800,
+				stagger: 0.4,
+				delay: 0.5,
+			});
+
+			tls
+				.to('.image2 img, .image2', {
+					width: '100%',
+					delay: 0.1,
+					ease: 'bounce',
+					duration: 2,
+				})
+				.to('.h42', {
+					opacity: 0,
+					stagger: 0.3,
+					delay: 0.2,
+				})
+				.fromTo(
+					'.image3',
+					{
+						visibility: 'hidden',
+						y: '-100%',
+					},
+					{
+						visibility: 'visible',
+						y: '0%',
+						duration: 1,
+						ease: 'bounce',
+					}
+				);
+		</script>
+	</body>
+</html>

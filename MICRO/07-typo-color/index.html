@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Image Hover Effect</title>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<div class="freedom">
+			<p class="outline up">colorize</p>
+			<p class="outline up">colorize</p>
+			<p class="outline up">colorize</p>
+			<p class="origin">colorize</p>
+			<p class="outline down">colorize</p>
+			<p class="outline down">colorize</p>
+			<p class="outline down">colorize</p>
+		</div>
+
+		<script>
+			const ups = document.getElementsByClassName('up');
+			const downs = document.getElementsByClassName('down');
+			const origin = document.querySelector('.origin');
+			const body = document.querySelector('body');
+
+			origin.addEventListener('mouseover', (e) => {
+				for (let index = 0; index < ups.length; index++) {
+					ups[index].style.transform = 'translateY(-' + 20 * (index + 1) + '%)';
+					ups[index].style.opacity = 1 / (index + 0.8) / 2;
+				}
+
+				for (let index = 0; index < downs.length; index++) {
+					downs[index].style.transform =
+						'translateY(' + 20 * (index + 1) + '%)';
+					downs[index].style.opacity = 1 / (index + 0.5) / 2;
+					downs[index].style.opacity = 1 / (index + 0.5) / 2;
+				}
+			});
+
+			origin.addEventListener('mousemove', (e) => {
+				const { offsetX: x, offsetY: y } = e,
+					{ offsetWidth: width, offsetHeight: height } = origin,
+					move = 30,
+					xMove = (x / width) * (move * 2) - move,
+					yMove = (y / height) * (move * 2) - move;
+
+				origin.style.transform = `translate(${xMove}px, ${yMove}px)`;
+				// origin.style.color = `rgb(${xMove * move},${yMove * move}, ${yMove * move / xMove})`;
+				origin.style.color = `rgb(${(xMove * move) / 2},${
+					(yMove * move) / 2
+				}, 100)`;
+
+				origin.style.letterSpacing = `${xMove}px`;
+
+				body.style.border = `20px solid rgb(${(xMove * move) / 2},${
+					(yMove * move) / 2
+				}, 100)`;
+			});
+
+			origin.addEventListener('mouseleave', () => {
+				origin.style.transform = '';
+				origin.style.color = '';
+				body.style.border = '';
+				origin.style.letterSpacing = '';
+
+				for (let index = 0; index < ups.length; index++) {
+					ups[index].style = '';
+				}
+
+				for (let index = 0; index < downs.length; index++) {
+					downs[index].style = '';
+				}
+			});
+		</script>
+	</body>
+</html>

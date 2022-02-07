@@ -1,0 +1,142 @@
+$white: #f4fcff;
+$blue: #005192;
+$black: #232b2d;
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	height: 100vh;
+	width: 100%;
+	overflow: hidden;
+	background: linear-gradient(90deg, $white 0%, #fff 100%);
+}
+
+.container {
+	width: 100%;
+	height: 100%;
+	position: relative;
+	top: 0;
+	left: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: 10px solid $black;
+	overflow-y: scroll;
+
+	header {
+		position: fixed;
+		top: 0;
+		display: flex;
+		width: 100%;
+		justify-content: space-between;
+		padding: 20px;
+		align-items: center;
+
+		span {
+			font-family: 'Recursive', sans-serif;
+			font-weight: 400;
+			color: $black;
+			font-size: 0.7em;
+			letter-spacing: 0.1em;
+			padding: 5px;
+
+			&::after {
+				width: 0%;
+				height: 2px;
+				background-color: $black;
+				content: '';
+				display: block;
+				transition: width 0.3s ease-in-out;
+			}
+
+			&::selection {
+				background-color: $black;
+				color: $white;
+			}
+
+			&:hover {
+				cursor: crosshair;
+
+				&::after {
+					width: 100%;
+				}
+			}
+		}
+	}
+
+	.tajCut {
+		background-image: url('../../images/tajmahal/tajCut/2.png');
+		background-position: center center;
+		background-size: cover;
+		width: 100%;
+		height: 100%;
+		position: fixed;
+		bottom: 10px;
+		z-index: 2;
+		filter: grayscale(100%) contrast(130%)
+			drop-shadow(0px 0px 30px rgba(darken($blue, 20%), 0.3));
+		pointer-events: none;
+		transition: filter 0.2s ease-in-out;
+	}
+
+	.tajTypo {
+		font-size: 15vw;
+		color: $black;
+		position: absolute;
+		z-index: 1;
+		pointer-events: none;
+		font-family: 'Prata', serif;
+		user-select: none;
+	}
+
+	.round {
+		width: 600px;
+		height: 600px;
+		background: $blue;
+		border-radius: 50%;
+		position: relative;
+		overflow: hidden;
+		transition: all ease-in-out;
+		will-change: perspective;
+
+		&:hover {
+			cursor: pointer;
+		}
+
+		&::after {
+			content: '';
+			position: absolute;
+			border-radius: 50%;
+			width: 100%;
+			height: 100%;
+			mix-blend-mode: unset;
+			background-image: url('../../images/textures/marble2.jpg');
+			&:hover {
+				cursor: pointer;
+			}
+		}
+	}
+}
+
+// .container-2 {
+// 	position: relative;
+// 	height: 100%;
+// 	width: 100vw;
+// 	top: 0;
+
+// 	.tajCutBg {
+// 		background-image: url('../../images/tajmahal/taj1.jpeg');
+// 		background-position: top center;
+// 		background-size: cover;
+// 		width: 100%;
+// 		height: 100%;
+// 		position: absolute;
+// 		z-index: 2;
+// 		pointer-events: none;
+// 		transition: filter 0.2s ease-in-out;
+// 	}
+// }
